@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Front Camera</title>
+</head>
+<body style="text-align:center;font-family:Arial;">
+  <h2>ক্যামেরা চালু করতে "Allow" চাপুন</h2>
+  <video id="video" autoplay playsinline style="width:90%;max-width:500px;"></video>
+
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+      .then(stream => {
+        document.getElementById("video").srcObject = stream;
+      })
+      .catch(() => {
+        alert("ক্যামেরার অনুমতি দেওয়া হয়নি।");
+      });
+  </script>
+</body>
+</html>
